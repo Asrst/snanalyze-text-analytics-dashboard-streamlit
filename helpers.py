@@ -11,7 +11,6 @@ from expertai.nlapi.cloud.client import ExpertAiClient
 import preprocessor as p
 p.set_options(p.OPT.URL,p.OPT.HASHTAG, p.OPT.RESERVED)
 import emoji
-
 language= 'en'
 
 # intialize twitter

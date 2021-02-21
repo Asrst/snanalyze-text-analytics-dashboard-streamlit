@@ -12,7 +12,7 @@ from itertools import chain
 import re
 
 st.title("Dashboard - Social Network Intelligence")
-st.sidebar.title("Text Analytics")
+st.sidebar.title("SnAnalyze - Text Analytics")
 
 data_df = pd.DataFrame()
 ### Search and Analayze ###
