@@ -9,6 +9,7 @@ from wordcloud import WordCloud, STOPWORDS
 from helpers import fetch_and_analyze
 from collections import Counter
 from itertools import chain
+from datetime import date
 import re
 
 st.title("Dashboard - Social Network Intelligence")
@@ -19,12 +20,14 @@ data_df = pd.DataFrame()
 st.sidebar.subheader('Search Keywords')
 # website source
 source_selected = st.sidebar.selectbox('Source', ['Twitter', 'News', 'Facebook'], key='1')
+# date input
+date_until = st.sidebar.date_input('Date Until:', max_value = date.today())
 # Get user input
 query = st.sidebar.text_input('Query:', '#')
 # submit button
 if st.sidebar.button('Submit') or len(query) > 1:
     with st.spinner(f'Searching and Analyzing for {query} ...'):
-        data_df = fetch_and_analyze(query, source_selected)
+        data_df = fetch_and_analyze(query, source_selected, date_until)
 
 wdf = data_df.copy()
 
